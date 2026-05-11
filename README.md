@@ -1,0 +1,2 @@
+- two sum
+- palindrome check
