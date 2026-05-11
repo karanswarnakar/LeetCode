@@ -23,10 +23,10 @@ def TwoSum(arr, target):
         for j in arr:
             if i == j:
                 continue
-            y = i + j
-            if y == target: 
-                print(i,j)
-                return
+            print(i+j)
+            if i + j == target: 
+                print("Target Match",i,j)
+                return   
             
                 
             
