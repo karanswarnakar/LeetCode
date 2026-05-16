@@ -7,28 +7,46 @@ romanNum = {
     "D":500,
     "M":1000,
 }
-genarate = {}
+def arraySum(arr):
+    result = 0
+    for i in arr:
+        result+=i
+    print(result) 
 
-
-for i in range(1, 11):
-    for j in romanNum:
-        if i == 1:
-            print(romanNum[0])
-        elif i == 2:
-            print(romanNum[0],romanNum[0])
-        elif i == 3:
-            print(romanNum[0],romanNum[0],romanNum[0])
-        elif i == 4:
-            print(romanNum[0],romanNum[1])
-        elif i == 5:
-            print(romanNum[1])
-        elif i == 6:
-            print(romanNum[1],romanNum[0])  
-        elif i == 7:
-            print(romanNum[0],romanNum[0],romanNum[0])
-        elif i == 8:
-            print(romanNum[1],romanNum[0],romanNum[0],romanNum[0])
-        elif i == 9:
-            print(romanNum[0],romanNum[3])
-        
-        
+def romanToNum(roman="MCMXCIV"):
+    
+    formation = False
+    
+    
+    b = roman[-2:]
+    m = roman[:-2]
+    
+    print("Formation: ",b)
+    
+    res = []
+    if b == "IV":
+        formation = True
+        res.append(4)
+        print("4 is Added to array")
+    elif b == "IX":
+        formation = True
+        res.append(9)
+        print("9 is Added to array")
+    
+    print(m)
+    for i in romanNum:
+       
+        if formation:
+             for j in m:
+                if i == j:
+                    print(f"Match: {j} -> {romanNum[i]}")
+                    res.append(romanNum[i])
+        else:
+            for j in roman:
+                if i == j:
+                    print(f"Match: {j} -> {romanNum[i]}")
+                    res.append(romanNum[i])
+                
+    arraySum(res)           
+romanToNum()  
+  
